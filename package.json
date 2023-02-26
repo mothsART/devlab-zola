@@ -1,0 +1,22 @@
+{
+  "name": "devlab",
+  "version": "0.1",
+  "description": "A theme for a devlab",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mothsart/devlab-zola.git"
+  },
+  "author": "Fery Jérémie",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/mothsart/devlab-zola/issues"
+  },
+  "homepage": "https://github.com/mothsart/devlab-zola#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.0"
+  }
+}
