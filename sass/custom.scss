@@ -27,9 +27,11 @@ $dark:                $oc-gray-8;
 
 $offcanvas-horizontal-width: 224px;
 
+img {
+    width: 100%;
+}
 
 @import "../node_modules/bootstrap/scss/bootstrap";
-
 
 a {
     color: $oc-blue-8;

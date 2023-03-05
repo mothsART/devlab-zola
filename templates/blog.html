@@ -56,15 +56,33 @@
                   </p>
                   <p class="row card-text">
                     <small class="col-auto my-1 me-4 text-muted">
+                      <svg style="margin-bottom:3px" class="i-clock" viewBox="0 0 32 32"
+                           width="16" height="16" fill="none" stroke="currentcolor"
+                           stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+                          <circle cx="16" cy="16" r="14"/>
+                          <path d="M16 8 L16 16 20 20"/>
+                      </svg>
+                      <span><strong>{{ page.reading_time }}</strong> minutes de lecture</span>
                       <span class="bi bi-calendar mx-1"></span>
                       <time datetime="{{ page.date | safe }}">
-                        <a 
-                          href="#" data-bs-toggle="tooltip"
-                          data-bs-title="{{ page.date | date(format='%A, %B %d, %Y %r %Z') | safe }}"
+                        <span
                           class="text-muted text-decoration-none"
                         >
-                          {{ page.date | date(format="%B %d, %Y") | safe }}
-                        </a>
+                            Publié le {{ page.date | date(format="%e %b %Y") | 
+                                replace(from="Jan", to="Janvier") | 
+                                replace(from="Feb", to="Février") | 
+                                replace(from="Mar", to="Mars") | 
+                                replace(from="Apr", to="Avril") | 
+                                replace(from="May", to="Mai") | 
+                                replace(from="Jun", to="Juin") | 
+                                replace(from="Jul", to="Juillet") | 
+                                replace(from="Aug", to="Août") | 
+                                replace(from="Sep", to="Septembre") | 
+                                replace(from="Oct", to="Octobre") | 
+                                replace(from="Nov", to="Novembre") | 
+                                replace(from="Dec", to="Décembre")
+                            }}
+                        </span>
                       </time>
                     </small>
                     <small class="col-auto my-1 text-muted">
