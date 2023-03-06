@@ -29,11 +29,9 @@
             {{ config.title | safe }}
           </a>
         </div>
-        <!--
         <div class="fw-light">
           {{ config.description | safe }}
         </div>
-        -->
       </div>
 
       {{ menus::sidebar_nav(type = type) }}
@@ -60,9 +58,11 @@
           >
             <aside class="d-flex flex-column justify-content-between h-100">
               <div class="mb-4 pt-5 px-3 text-center">
+                <!--
                 <div class="sidebar-avatar mb-2 mx-auto border border-3 rounded-circle">
                   {{ images::get_avatar() }}
                 </div>
+                -->
                 <div>
                   <a
                     href="{{ config.base_url | safe }}"
