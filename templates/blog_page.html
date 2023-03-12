@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% import "macros/utilities/posts.html" as posts %}
 {% import "macros/utilities/comments.html" as comments %}
-
+{% import "macros/utilities/blogleft.html" as blog_head %}
 
 {%- block title -%}
   {{ page.title | safe }} - {{ config.title | safe }}
@@ -22,98 +22,22 @@
   {{ header::header(page = page, type = "page") }}
 {%- endblock header -%}
 
-
 {%- block content -%}
   <main class="container">
     <div class="row justify-content-center mt-5">
       <div class="col-11 col-lg-10 col-xxl-9">
-        <h1 class="mb-3">
+        <h1>
           {{ page.title | safe }}
         </h1>
-        <div class="row mt-3 mb-2">
-          <div class="col-auto">
-            <small class="text-muted">
-              Par :
-              <a
-                href="{{ config.extra.social.author_link | safe }}"
-                target="_blank" rel="noopener noreferrer"
-                class="text-decoration-none"
-              >
-                {{ config.extra.author | safe }}
-              </a>
-            </small>
-          </div>
+        <div class="row">
+            <div class="blog-head-left col-6">
+                {{ blog_head::left() }}
+            </div>
+            <div class="blog-head-right col-6">
+                {{ blog_head::right() }}
+            </div>
         </div>
-        <div class="row mb-3">
-          <div class="col-auto mb-2">
-            <small class="text-muted">
-              Posté le
-              <time datetime="{{ page.date | safe }}">
-                <span
-                  class="text-muted text-decoration-none"
-                >
-                    {{ page.date | date(format="%e %b %Y") |
-                        replace(from="Jan", to="Janvier") |
-                        replace(from="Feb", to="Février") |
-                        replace(from="Mar", to="Mars") |
-                        replace(from="Apr", to="Avril") |
-                        replace(from="May", to="Mai") |
-                        replace(from="Jun", to="Juin") |
-                        replace(from="Jul", to="Juillet") |
-                        replace(from="Aug", to="Août") |
-                        replace(from="Sep", to="Septembre") |
-                        replace(from="Oct", to="Octobre") |
-                        replace(from="Nov", to="Novembre") |
-                        replace(from="Dec", to="Décembre")
-                    }}
-                </span>
-              </time>
-            </small>
-          </div>
-          {% if page.updated %}
-            <div class="col-auto">
-              <small class="text-muted">
-                Mise à jour :
-                <time datetime="{{ page.updated | safe }}">
-                  <span
-                    class="text-muted text-decoration-none"
-                  >
-                    {{ page.date | date(format="%e %b %Y") |
-                        replace(from="Jan", to="Janvier") |
-                        replace(from="Feb", to="Février") |
-                        replace(from="Mar", to="Mars") |
-                        replace(from="Apr", to="Avril") |
-                        replace(from="May", to="Mai") |
-                        replace(from="Jun", to="Juin") |
-                        replace(from="Jul", to="Juillet") |
-                        replace(from="Aug", to="Août") |
-                        replace(from="Sep", to="Septembre") |
-                        replace(from="Oct", to="Octobre") |
-                        replace(from="Nov", to="Novembre") |
-                        replace(from="Dec", to="Décembre")
-                    }}
-                  </span>
-                </time>
-              </small>
-            </div>
-          {% endif %}
-        {% if page.taxonomies.categories %}
-          <div class="row my-1">
-            <div class="col-auto">
-              <span class="bi bi-bookmarks fs-6 me-1"></span>
-              {{ posts::categories_btn(categories = page.taxonomies.categories) }}
-            </div>
-          </div>
-        {% endif %}
-        {% if page.taxonomies.tags %}
-          <div class="row mt-1 mb-3">
-            <div class="col-auto">
-              <span class="bi bi-tags fs-6 me-1"></span>
-              {{ posts::tags_btn(tags = page.taxonomies.tags) }}
-            </div>
-          </div>
-        {% endif %}
-        </div>
+
         {%- if page.extra.image.visible_in_page -%}
           <div class="post-img mb-4 rounded-3">
             <img

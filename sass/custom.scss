@@ -140,3 +140,15 @@ a:hover {
 .btn-taxonomy {
     background-color: $oc-gray-1;
 }
+
+.card-body {
+    padding: 0;
+}
+
+.card-text .text-muted {
+    line-height: 3rem;
+}
+
+.blog-head-left, .blog-head-right {
+    line-height: 3rem;
+}
